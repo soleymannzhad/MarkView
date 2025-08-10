@@ -1,0 +1,204 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+  gap: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  /* پس‌زمینه گرادینت نرم */
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  transition: background 0.5s ease;
+}
+
+.app-container > div:nth-child(2) {
+  width: 5px;
+  cursor: col-resize;
+  /* گرادینت عمودی برای خط تقسیم */
+  background: linear-gradient(180deg, #a1c4fd 0%, #c2e9fb 100%);
+  border-radius: 2px;
+  user-select: none;
+  transition: background 0.3s ease;
+}
+
+.app-container > div:nth-child(2):hover {
+  /* گرادینت تیره‌تر هنگام هاور */
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+}
+
+/* ریسپانسیو */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .app-container > div:first-child,
+  .app-container > div:last-child {
+    width: 100% !important;
+    height: 300px;
+  }
+
+  .app-container > div:nth-child(2) {
+    width: 100%;
+    height: 5px;
+    cursor: row-resize;
+    /* گرادینت افقی برای خط تقسیم در موبایل */
+    background: linear-gradient(90deg, #a1c4fd 0%, #c2e9fb 100%);
+  }
+  .app-container > div:nth-child(2):hover {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  }
+}
+
+
+
+/* عرض هر بخش نصف صفحه */
+.editor, .preview {
+  /* width: 100%;
+  height: 100vh; */
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+
+
+
+
+
+/* ////Preview//// */
+
+
+.preview {
+  width: 100%;
+  height: 100%;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: linear-gradient(145deg, #f0f4ff, #d9e2ff);
+  color: #222;
+  overflow-y: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: inset 2px 2px 8px #c8d1ff, inset -2px -2px 8px #ffffff;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* تیترها */
+.preview h1 {
+  font-size: 2rem;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+  color: #4a51bf;
+}
+
+.preview h2 {
+  font-size: 1.5rem;
+  color: #5a67d8;
+  margin-bottom: 0.8rem;
+}
+
+/* لینک‌ها */
+.preview a {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+.preview a:hover {
+  color: #9f7aea;
+}
+
+/* کد inline */
+.preview code {
+  background-color: #e5e7ff;
+  color: #5a67d8;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+}
+
+/* بلاک کد */
+.preview pre {
+  background-color: #2d2d2d;
+  color: #dcdcdc;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* لیست‌ها */
+.preview ul {
+  padding-left: 1.2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* نقل قول */
+.preview blockquote {
+  border-left: 4px solid #667eea;
+  padding-left: 1rem;
+  color: #555;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+/* تصاویر */
+.preview img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 1rem 0;
+  box-shadow: 0 4px 6px rgba(118, 75, 162, 0.3);
+}
+
+
+
+
+/* /////Editor//// */
+
+/* کانتینر ادیتور */
+.editor-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: linear-gradient(135deg, #fefefe, #e4e9ff);
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(102, 126, 234, 0.3);
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* خود textarea */
+.editor {
+  flex-grow: 1;
+  width: 100%;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 1rem;
+  color: #222;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  resize: none;
+  outline: none;
+  box-shadow: inset 2px 2px 6px #d0d7ff, inset -2px -2px 6px #ffffff;
+  transition: border-color 0.3s ease;
+}
+
+/* وقتی فیلد فوکوس میشه */
+.editor:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 8px #667eea;
+}
+
+/* برای Container تولبار در صورت نیاز */
+.toolbar {
+  margin-bottom: 0.8rem;
+}
